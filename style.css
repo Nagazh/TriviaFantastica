@@ -11,11 +11,7 @@ main{
     justify-content: center;
     
 }
-div input{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
+
 .respuesta {
     width: 220px;
     
