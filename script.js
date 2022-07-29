@@ -24,37 +24,39 @@ const arrayPreguntas = [pregunta1,pregunta2,pregunta3,pregunta4,pregunta5]
 
 for(i=0;i<=arrayPreguntas.length-1;i++){                                                
 
+ //Llamamos a cada elemento div escrito en index.html y la almacenamos en una variable
+//Se crea la pregunta y se anida como un nodo hijo del div, para terminar se usa una de las preguntas creadas
+//Se crea una variable que almacene los botones que se crearan como INPUTS esta es la opcion A
+//Se define el tipo de input que sera
+//Se agrega una class
+//Se almacena una de las respuestas a travez de una matriz
 
-//Posiciones aleatorias (PENDIENTE)
-    /* let almacenamiento=[];
-     let numeroRandom=Math.floor(Math.random()*5);*/                                    
-
-
-//Llamamos a cada elemento div escrito en index.html y la almacenamos en una variable
 
 let preguntaDepPrueba = document.getElementById("q"+i);                                
-preguntaDepPrueba.appendChild(document.createTextNode(arrayPreguntas[i]));               //Se crea la pregunta y se anida como un nodo hijo del div, para terminar se usa una de las preguntas creadas
+preguntaDepPrueba.appendChild(document.createTextNode(arrayPreguntas[i]));               
+let opcion1 = preguntaDepPrueba.appendChild(document.createElement("INPUT"));            
+opcion1.type="button";                                                                   
+opcion1.classList="respuesta";                                                           
+opcion1.value=arrayRespuestas[i][0];                                                     
 
-let opcion1 = preguntaDepPrueba.appendChild(document.createElement("INPUT"));            //Se crea una variable que almacene los botones que se crearan como INPUTS esta es la opcion A
-opcion1.type="button";                                                                   //Se define el tipo de input que sera
-opcion1.classList="respuesta";                                                           //Se agrega una class
-opcion1.value=arrayRespuestas[i][0];                                                     //Se almacena una de las respuestas a travez de una matriz
-
-let opcion2 = preguntaDepPrueba.appendChild(document.createElement("INPUT"));            //Opcion B  
+let opcion2 = preguntaDepPrueba.appendChild(document.createElement("INPUT"));             
 opcion2.type="button"
 opcion2.classList="respuesta";                                                  
 opcion2.value=arrayRespuestas[i][1];
 
-let opcion3 = preguntaDepPrueba.appendChild(document.createElement("INPUT"));            //Opcion C
+let opcion3 = preguntaDepPrueba.appendChild(document.createElement("INPUT"));           
 opcion3.type="button"
 opcion3.classList="respuesta";
 opcion3.value=arrayRespuestas[i][2];
 }
 
-    let r = document.querySelectorAll(".respuesta").forEach( r=> {                       //APRENDER SACADO DE  https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
+ //APRENDER SACADO DE  https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
+
+    let r = document.querySelectorAll(".respuesta").forEach( r=> {                      
         r.addEventListener('click',()=>{
             //mejorar
-            if(r.value==respuesta1[0]||r.value==respuesta2[0]||r.value==respuesta3[2]||r.value==respuesta4[2]||r.value==respuesta5[0]){ //Mejorar a futuro
+            if(r.value==respuesta1[0]||r.value==respuesta2[0]||r.value==respuesta3[2]
+                ||r.value==respuesta4[2]||r.value==respuesta5[0]){
                 alert("Correcto");
             }
             else{
